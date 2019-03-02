@@ -8,13 +8,13 @@ Enter in .bash_profile
 `$ nano .bash_profile`  
 `export PATH=$PATH":$HOME/Documents/custom-scripts"`
 
-
 IF the script dont work:  
 `$ chmod +x filename`
 
 ---
+
 OBS.2 :
-To save username and password in git 
+To save username and password in git
 
 `$ git config credential.helper store`  
 `$ git pull`  

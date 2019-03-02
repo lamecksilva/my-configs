@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sudo pacman -S --needed base-devel git
+read
+
+git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
+makepkg -fsri
+read
+
+pikaur -Syyuu terminator visual-studio-code-bin postman-bin docker docker-compose mongodb-bin nodejs
+read
