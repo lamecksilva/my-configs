@@ -8,6 +8,5 @@ cd pikaur
 makepkg -fsri
 read
 
-pikaur -Syyuu terminator visual-studio-code-bin postman-bin docker 
-docker-compose mongodb-bin nodejs npm
+pikaur -Syyuu terminator visual-studio-code-bin postman-bin docker docker-compose mongodb-bin nodejs npm screenfetch cinnamon libreoffice qbittorrent vim vlc
 read
