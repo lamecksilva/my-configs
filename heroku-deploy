@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Lets run build, git commit, push in heroku and origin master"
+
+git add .
+
+git commit -m "build"
+
+echo "$(git push heroku master)"
+
+git push origin master
+read
