@@ -3,13 +3,10 @@
 Repository to keep some scripts to help life and time
 
 OBS.1 :
-Enter in .bash_profile
+To run this scripts in any dir, cp the files to /bin dir
+e.g:
 
-`$ nano .bash_profile`  
-`export PATH=$PATH":$HOME/Documents/custom-scripts"`
-
-IF the script dont work:  
-`$ chmod +x filename`
+`# cp gitpush /bin`
 
 ---
 
