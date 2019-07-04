@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm run build
+
 echo "Lets run build, git commit, push in heroku and origin master"
 
 git add .

@@ -1,0 +1,97 @@
+# Conky, a system monitor, based on torsmo
+alignment middle_right
+alignment top_right
+background no
+cpu_avg_samples 4
+default_color 999999
+default_outline_color black
+default_shade_color black
+double_buffer yes
+draw_shades yes
+draw_borders no
+draw_outline yes
+draw_graph_borders no
+font Sans Regular:size=9
+gap_x 8
+gap_y 124
+minimum_width 300
+minimum_height 300
+no_buffers yes
+override_utf8_locale no
+own_window yes
+own_window_transparent no
+own_window_type desktop
+own_window_argb_visual yes
+own_window_argb_value 120
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+text_buffer_size 1024
+total_run_times 0
+update_interval 1.0
+use_xft yes
+uppercase no
+xftalpha 0
+
+TEXT
+# ==== System Info ==== #
+S Y S T E M    $alignr ${color white}$distribution $kernel
+$hr
+${color grey}Time: ${color white}${time %H:%M:%S}$alignr${color grey}Date: ${color white}${time %d/%m/%Y}
+${color grey}User: ${color white} $user_names $alignr${color grey}Uptime: ${color white} $uptime
+
+# ==== Battery Info ==== #
+${color grey}B A T E R Y $alignr ${battery}
+$hr
+${color grey}Percentage: $alignr ${battery_percent}%
+${color green}${battery_bar}
+
+# ==== CPU Info ==== #
+${color grey}C P U $alignr ${cpu cpu0}% (2.20GHz)
+$hr
+${color white}CPU 0 $alignr${cpu cpu0}% / ${freq_g cpu0}GHz
+${color green}${cpubar 4 cpu0}${color grey}
+${color white}CPU 1 $alignr${cpu cpu1}% / ${freq_g cpu1}GHz
+${color green}${cpubar 4 cpu1}${color grey}
+${color white}CPU 2 $alignr${cpu cpu2}% / ${freq_g cpu2}GHz
+${color green}${cpubar 4 cpu2}${color grey}
+${color white}CPU 3 $alignr${cpu cpu3}% / ${freq_g cpu3}GHz
+${color green}${cpubar 4 cpu3}${color grey}
+
+# ==== CPU PROCESS Info ==== #
+T O P   C P U
+$hr
+Process$alignr CPU% MEM%
+${top name 1} $alignr${top cpu 1}   ${top mem 1} 
+${top name 2} $alignr${top cpu 2}   ${top mem 2} 
+${top name 3} $alignr${top cpu 3}   ${top mem 3} 
+
+# ==== RAM Info ==== #
+R A M$alignr $memperc%
+$hr
+Memory: ${alignr}${mem} / ${memmax}
+${color green}${membar 4}${color grey}
+Cache: $alignr $cached
+
+# ==== RAM PROCESS Info ==== #
+T O P   R A M
+$hr
+Process $alignr CPU% MEM%
+${top_mem name 1} $alignr${top_mem cpu 1}   ${top_mem mem 1} 
+${top_mem name 2} $alignr${top_mem cpu 2}   ${top_mem mem 2} 
+${top_mem name 3} $alignr${top_mem cpu 3}   ${top_mem mem 3} 
+
+# ==== Storage / HDD Info ==== #
+S T O R A G E
+$hr
+Read / Write: $alignr $diskio_read / $diskio_write
+Root: ${alignr}${fs_used /} / ${fs_size /}
+${color green}${fs_bar 4 /}${color grey}
+
+# ==== Network Info ==== #
+N E T W O R K $alignr ${downspeed enp7s0} ${downspeed wlp6s0}
+$hr
+IP (enp7s0) $alignr ${addr enp7s0}
+IP (wlp6s0) $alignr ${addr wlp6s0}
+
+Device ${alignr} Down / Up   
+Wired (enp7s0) ${alignr}${totaldown enp7s0} / ${totalup enp7s0}
+Wireless (wlp6s0) ${alignr}${totaldown wlp6s0} / ${totalup wlp6s0}
