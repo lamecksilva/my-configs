@@ -1,37 +1,40 @@
-# Conky, a system monitor, based on torsmo
-alignment middle_right
-#alignment top_right
-background no
-cpu_avg_samples 4
-default_color 999999
-default_outline_color black
-default_shade_color black
-double_buffer yes
-draw_shades yes
-draw_borders no
-draw_outline yes
-draw_graph_borders no
-font Sans Regular:size=10
-gap_x 8
-gap_y 124
-width 400
-minimum_height 300
-no_buffers yes
-override_utf8_locale no
-own_window yes
-own_window_transparent no
-own_window_type desktop
-own_window_argb_visual yes
-own_window_argb_value 120
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-text_buffer_size 1024
-total_run_times 0
-update_interval 1.0
-use_xft yes
-uppercase no
-xftalpha 0
+conky.config = {
+-- Conky, a system monitor, based on torsmo
+	alignment = 'middle_right',
+--alignment top_right
+	background = false,
+	cpu_avg_samples = 4,
+	default_color = '#999999',
+	default_outline_color = 'black',
+	default_shade_color = 'black',
+	double_buffer = true,
+	draw_shades = true,
+	draw_borders = false,
+	draw_outline = true,
+	draw_graph_borders = false,
+	font = 'Sans Regular:size=10',
+	gap_x = 8,
+	gap_y = 124,
+	width = '400',
+	minimum_height = '300',
+	no_buffers = true,
+	override_utf8_locale = false,
+	own_window = true,
+	own_window_transparent = false,
+	own_window_type = 'desktop',
+	own_window_argb_visual = true,
+	own_window_argb_value = 120,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	text_buffer_size = 1024,
+	total_run_times = 0,
+	update_interval = 1.0,
+	use_xft = true,
+	uppercase = false,
+	xftalpha = 0,
 
-TEXT
+};
+
+conky.text = [[
 # ==== System Info ==== #
 S Y S T E M $alignr ${color white}$distribution $kernel
 $hr
@@ -83,3 +86,4 @@ IP (enp7s0) $alignr ${addr enp7s0}
 Device ${alignr} Down / Up
 Wireless (wlp6s0) ${alignr}${totaldown wlp6s0} / ${totalup wlp6s0}
 Wired (enp7s0) ${alignr}${totaldown enp7s0} / ${totalup enp7s0}
+]];
