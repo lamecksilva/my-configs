@@ -1,6 +1,6 @@
 conky.config = {
 -- Conky, a system monitor, based on torsmo
-	alignment = 'middle_right',
+	alignment = 'top_right',
 --alignment top_right
 	background = false,
 	cpu_avg_samples = 4,
@@ -14,7 +14,7 @@ conky.config = {
 	draw_graph_borders = false,
 	font = 'Sans Regular:size=10',
 	gap_x = 8,
-	gap_y = 124,
+	gap_y = 50,
 	width = '400',
 	minimum_height = '300',
 	no_buffers = true,
@@ -32,58 +32,73 @@ conky.config = {
 	uppercase = false,
 	xftalpha = 0,
 
+    -- colors
+    font = 'Liberation Mono:size=10',
+    default_color = 'EEEEEE',
+    color1 = '26a4d6',
+    color2 = 'c4d626',
+    color3 = 'AAAAAA',
+ 
+    -- layouting
+    template0 = [[${font Liberation Sans:bold:size=11}${color2}\1 ${color3}${hr 2}${font}]],
+    template1 = [[${color1}\1]],
+    template2 = [[${goto 100}${color}]],
+    template3 = [[${goto 180}${color}${alignr}]],
 };
 
 conky.text = [[
-# ==== System Info ==== #
-S Y S T E M $alignr ${color white}$distribution $kernel
-$hr
-${color grey}User $alignr${color white} $user_names 
-${color grey}Time $alignr${color white}${time %H:%M:%S}
-${color grey}Date $alignr${color white}${time %d/%m/%Y}
-${color grey}Uptime $alignr${color white} $uptime
 #${color grey}CPU $alignr${color white} ${exec lscpu | grep "Model name" | sed -r 's/Model name:\s{1,}(.*) @ .*z\s*/\1/g'}
-${color grey}Memory $alignr${color white}${memmax}
-${color grey}BATTERY $alignr${color white}${battery_percent}%  ${color green} ${battery_bar 5, 160}
-#${color white}$hr
-${color grey}RAM $alignr${color white}${mem}/${memmax}
-${color grey}Ram Usage $alignr$memperc% ${color green} ${membar 6, 160}
-# ==== CPU Info ==== #
-#${color white}$hr
-${color grey}CPU $alignr${color white}${exec lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g'}
-${color grey}CPU0 $alignr${color white}${cpu cpu0}% / ${freq_g cpu0}GHz
-${color green}${cpubar 7 cpu0}
-${color grey}CPU1 $alignr${color white}${cpu cpu1}% / ${freq_g cpu1}GHz
-${color green}${cpubar 7 cpu1}${color grey}
-${color gray}CPU2  $alignr${color white}${cpu cpu2}% / ${freq_g cpu2}GHz
-${color green}${cpubar 7 cpu2}${color grey}
-${color grey}CPU3 $alignr${color white}${cpu cpu3}% / ${freq_g cpu3}GHz
-${color green}${cpubar 7 cpu3}
-# ==== Storage / HDD Info ==== #
-${color white}$hr
-${color grey}STORAGE $alignr${color white} ${fs_used /} / ${fs_size /}
-${color grey}HDD $alignr${color white} $fs_used_perc% ${color green} ${fs_bar 6, 160}${color grey}
-Read / Write $alignr${color white} $diskio_read / $diskio_write
-# ==== CPU PROCESS Info ==== #
-#T O P   C P U
-#Process$alignr CPU% MEM%
-#${top name 1} $alignr${top cpu 1}   ${top mem 1} 
-#${top name 2} $alignr${top cpu 2}   ${top mem 2} 
-#${top name 3} $alignr${top cpu 3}   ${top mem 3} 
-# ==== RAM PROCESS Info ==== #
-#T O P   R A M
-#$hr
-#Process $alignr CPU% MEM%
-#${top_mem name 1} $alignr${top_mem cpu 1}   ${top_mem mem 1} 
-#${top_mem name 2} $alignr${top_mem cpu 2}   ${top_mem mem 2} 
-#${top_mem name 3} $alignr${top_mem cpu 3}   ${top_mem mem 3} 
-# ==== Network Info ==== #
-${color white}$hr
-NETWORK
-IP (wlp6s0) $alignr ${addr wlp6s0}
-IP (enp7s0) $alignr ${addr enp7s0}
+# ==== System Info ==== #
+${template0 Info}
+${template1 SO}                         ${template3}$distribution
+${template1 Hostname}                   ${template3}${nodename}
+${template1 ${sysname}}                 ${template3}${kernel}
+${template1 User}                       ${template3}$user_names
+${template1 Time}                       ${template3}${time %H:%M:%S}
+${template1 Date}                       ${template3}${time %d/%m/%Y}
+${template1 Uptime}                     ${template3}$uptime
 
-Device ${alignr} Down / Up
-Wireless (wlp6s0) ${alignr}${totaldown wlp6s0} / ${totalup wlp6s0}
-Wired (enp7s0) ${alignr}${totaldown enp7s0} / ${totalup enp7s0}
+${template0 System}
+${template1 CPU} $alignr${color white}${exec lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g'}
+${template1 CPU}                        ${template3}${freq_g}GHz
+${template1 CPU\ Temperature}           ${template3}${acpitemp}°C
+${template1 Memory}                     ${template3}${memmax}
+
+${template0 Stats}
+${template1 Battery}            ${template2}${battery_percent}%    ${battery_bar 5}
+
+${template0 Memory}
+${template1 RAM} ${template3}${mem}/${memmax}
+${template1 Ram} ${template1 Usage}          ${template2}$memperc%     ${membar 5}
+${template1 Top}    ${template2}${top_mem name 1}    ${template3}${top_mem mem_vsize 1}
+
+# ==== CPU Info ==== #
+${template0 Processors}
+${template1 Core\ 1}            ${template2}${cpu cpu1}%    ${cpubar cpu1}
+${template1 Core\ 2}            ${template2}${cpu cpu2}%    ${cpubar cpu2}
+${template1 Core\ 3}            ${template2}${cpu cpu3}%    ${cpubar cpu3}
+${template1 Core\ 4}            ${template2}${cpu cpu4}%    ${cpubar cpu4}
+${template1 Top}          ${color white}${top name 1}      $alignr${top cpu 1}%
+
+${template0 Filesystem}
+${template1 /}        ${template2}${fs_free /} free     ${fs_used /} / ${fs_size /}
+${template1 HDD} ${template1 Usage}     ${color white}$fs_used_perc%     ${fs_bar /}
+${template1 IO\ Read}      ${template2}${diskio_read}
+${template1 IO\ Write}     ${template2}${diskio_write}
+${template1 Top}     ${template2}${top_io name 1}     ${top_io io_perc 1}%
+
+${template0 Networking}
+${if_existing /proc/net/route wlp6s0}\
+${template1 Interface}     ${template3}wlp6s0
+${template1 IP}            ${template3}${addr wlp6s0}
+${template1 AP}            ${template3}${wireless_essid wlp6s0}
+${template1 Signal}     ${template2}${wireless_link_qual_perc wlp6s0}%     ${wireless_link_bar wlp6s0}
+${template1 Total Down/Up}                     ${template3}${totaldown wlp6s0} / ${totalup wlp6s0}
+${else}${if_existing /proc/net/route enp7s0}\
+${template1 Interface}     ${template3}enp7s0
+${template1 Ip}                                  ${template3}${addr enp7s0}
+${template1 Total Down/Up}              ${template3}${totaldown enp7s0} / ${totalup enp7s0}
+${endif}${endif}\
+ 
 ]];
+
