@@ -42,7 +42,7 @@ conky.config = {
     -- layouting
     template0 = [[${font Liberation Sans:bold:size=11}${color2}\1 ${color3}${hr 2}${font}]],
     template1 = [[${color1}\1]],
-    template2 = [[${goto 100}${color}]],
+    template2 = [[${goto 110}${color}]],
     template3 = [[${goto 180}${color}${alignr}]],
 };
 
@@ -61,31 +61,31 @@ ${template1 Uptime}                     ${template3}$uptime
 ${template0 System}
 ${template1 CPU} $alignr${color white}${exec lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g'}
 ${template1 CPU\ Frequency}              ${template3}${freq_g}GHz
-${template1 CPU\ Temperature}           ${template3}${acpitemp}°C
+${template1 CPU\ Temperature}           ${template3}${exec sensors | grep -n 'CPU' | awk -F'+' '{print $2}' | awk -F' ' '{print $1}'}
 ${template1 Memory}                     ${template3}${memmax}
 
 ${template0 Stats}
-${template1 Battery}            ${template2}${battery_percent}%    ${battery_bar 5}
+${template1 Battery}            ${template2}${battery_percent}%    $alignr${battery_bar 6, 160}
 
 ${template0 Memory}
 ${template1 RAM} ${template3}${mem}/${memmax}
-${template1 Ram\ Usage}          ${template2}$memperc%     ${membar 5}
+${template1 Ram\ Usage}          ${template2}$memperc%     $alignr${membar 6, 160}
 ${template1 Top}    ${template2}${top_mem name 1}    ${template3}${top_mem mem_vsize 1}
 
 # ==== CPU Info ==== #
 ${template0 Processors}
-${template1 Core\ 1}            ${template2}${cpu cpu1}%    ${cpubar cpu1}
-${template1 Core\ 2}            ${template2}${cpu cpu2}%    ${cpubar cpu2}
-${template1 Core\ 3}            ${template2}${cpu cpu3}%    ${cpubar cpu3}
-${template1 Core\ 4}            ${template2}${cpu cpu4}%    ${cpubar cpu4}
-${template1 Top}          ${color white}${top name 1}      $alignr${top cpu 1}%
+${template1 Core\ 1}         ${template2}${cpu cpu1}%    $alignr${cpubar cpu1 6, 160}
+${template1 Core\ 2}         ${template2}${cpu cpu2}%    $alignr${cpubar cpu2 6, 160}
+${template1 Core\ 3}         ${template2}${cpu cpu3}%    $alignr${cpubar cpu3 6, 160}
+${template1 Core\ 4}         ${template2}${cpu cpu4}%    $alignr${cpubar cpu4 6, 160}
+${template1 Top}       ${template2}${top name 1}      $alignr${top cpu 1}%
 
 ${template0 Filesystem}
-${template1 /}        ${template2}${fs_free /} free     ${fs_used /} / ${fs_size /}
-${template1 Disk\ Usage}   ${color white}$fs_used_perc%      ${fs_bar /}
+${template1 /}        ${template2}${fs_free /} free     $alignr${fs_used /} / ${fs_size /}
+${template1 Disk\ Usage}   ${template2}$fs_used_perc%      $alignr${fs_bar 6, 160 /}
 ${template1 IO\ Read}      ${template2}${diskio_read}
 ${template1 IO\ Write}     ${template2}${diskio_write}
-${template1 Top}     ${template2}${top_io name 1}     ${top_io io_perc 1}%
+${template1 Top}     ${template2}${top_io name 1}     $alignr${top_io io_perc 1}%
 
 ${template0 Networking}
 ${if_existing /proc/net/route enp7s0}\
@@ -97,7 +97,7 @@ ${if_existing /proc/net/route wlp6s0}\
 ${template1 Interface}     ${template3}wlp6s0
 ${template1 IP}     ${template3}${addr wlp6s0}
 ${template1 AP}     ${template3}${wireless_essid wlp6s0}
-${template1 Signal}     ${template2}${wireless_link_qual_perc wlp6s0}%     ${wireless_link_bar wlp6s0}
+${template1 Signal}     ${template2}${wireless_link_qual_perc wlp6s0}%     $alignr${wireless_link_bar 6, 160 wlp6s0}
 ${template1 Total\ Down/Up}     ${template3}${totaldown wlp6s0} / ${totalup wlp6s0}
 ${endif}${endif}\
 ]];
