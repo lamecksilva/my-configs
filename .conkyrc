@@ -14,7 +14,7 @@ draw_graph_borders no
 font Sans Regular:size=10
 gap_x 8
 gap_y 124
-minimum_width 400
+width 400
 minimum_height 300
 no_buffers yes
 override_utf8_locale no
@@ -32,37 +32,37 @@ uppercase no
 xftalpha 0
 
 TEXT
-
-
-
-
 # ==== System Info ==== #
-S Y S T E M    $alignr ${color white}$distribution $kernel
+S Y S T E M $alignr ${color white}$distribution $kernel
 $hr
-${color grey}Time: ${color white}${time %H:%M:%S}$alignr${color grey}Date: ${color white}${time %d/%m/%Y}
-${color grey}User: ${color white} $user_names $alignr${color grey}Uptime: ${color white} $uptime
-
-# ==== Battery Info ==== #
-$hr
-${color grey}BATTERY $alignr ${battery_percent}%  ${color green} ${battery_bar 4, 160}
-
-# ==== RAM Info ==== #
-${color white}$hr
-${color grey}R A M: $alignr ${color white} ${mem}/${memmax} 
-Ram Usage: $alignr $memperc%  ${color green} ${membar 4, 160}
-
+${color grey}User $alignr${color white} $user_names 
+${color grey}Time $alignr${color white}${time %H:%M:%S}
+${color grey}Date $alignr${color white}${time %d/%m/%Y}
+${color grey}Uptime $alignr${color white} $uptime
+#${color grey}CPU $alignr${color white} ${exec lscpu | grep "Model name" | sed -r 's/Model name:\s{1,}(.*) @ .*z\s*/\1/g'}
+${color grey}Memory $alignr${color white}${memmax}
+${color grey}BATTERY $alignr${color white}${battery_percent}%  ${color green} ${battery_bar 5, 160}
+#${color white}$hr
+${color grey}RAM $alignr${color white}${mem}/${memmax}
+${color grey}Ram Usage $alignr$memperc% ${color green} ${membar 6, 160}
 # ==== CPU Info ==== #
+#${color white}$hr
+${color grey}CPU $alignr${color white}${exec lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g'}
+${color grey}CPU0 $alignr${color white}${cpu cpu0}% / ${freq_g cpu0}GHz
+${color green}${cpubar 7 cpu0}
+${color grey}CPU1 $alignr${color white}${cpu cpu1}% / ${freq_g cpu1}GHz
+${color green}${cpubar 7 cpu1}${color grey}
+${color gray}CPU2  $alignr${color white}${cpu cpu2}% / ${freq_g cpu2}GHz
+${color green}${cpubar 7 cpu2}${color grey}
+${color grey}CPU3 $alignr${color white}${cpu cpu3}% / ${freq_g cpu3}GHz
+${color green}${cpubar 7 cpu3}
+# ==== Storage / HDD Info ==== #
 ${color white}$hr
-${color grey}C P U $alignr ${cpu cpu0}% (2.20GHz)
-
-${color white}CPU0    ${cpu cpu0}% / ${freq_g cpu0}GHz   ${color white}CPU1 $alignr${cpu cpu1}% / ${freq_g cpu1}GHz
-${color green}${cpubar 4, 150 cpu0}${color grey}  $alignr${color green}${cpubar 4, 150 cpu1}${color grey}
-${color white}CPU2    ${cpu cpu2}% / ${freq_g cpu2}GHz   ${color white}CPU3 $alignr${cpu cpu3}% / ${freq_g cpu3}GHz
-${color green}${cpubar 4, 150cpu2}${color grey}  $alignr${color green}${cpubar 4, 150 cpu3}${color grey} 
-
+${color grey}STORAGE $alignr${color white} ${fs_used /} / ${fs_size /}
+${color grey}HDD $alignr${color white} $fs_used_perc% ${color green} ${fs_bar 6, 160}${color grey}
+Read / Write $alignr${color white} $diskio_read / $diskio_write
 # ==== CPU PROCESS Info ==== #
 #T O P   C P U
-#$hr
 #Process$alignr CPU% MEM%
 #${top name 1} $alignr${top cpu 1}   ${top mem 1} 
 #${top name 2} $alignr${top cpu 2}   ${top mem 2} 
@@ -74,19 +74,12 @@ ${color green}${cpubar 4, 150cpu2}${color grey}  $alignr${color green}${cpubar 4
 #${top_mem name 1} $alignr${top_mem cpu 1}   ${top_mem mem 1} 
 #${top_mem name 2} $alignr${top_mem cpu 2}   ${top_mem mem 2} 
 #${top_mem name 3} $alignr${top_mem cpu 3}   ${top_mem mem 3} 
-# ==== Storage / HDD Info ==== #
-$hr
-S T O R A G E
-Root: ${alignr} ${color white} ${fs_used /} / ${fs_size /} ${color green} ${fs_bar 4, 140 /}${color grey}
-Read / Write: $alignr $diskio_read / $diskio_write
-
 # ==== Network Info ==== #
-$hr
-N E T W O R K
-
+${color white}$hr
+NETWORK
 IP (wlp6s0) $alignr ${addr wlp6s0}
 IP (enp7s0) $alignr ${addr enp7s0}
 
-Device ${alignr} Down / Up   
+Device ${alignr} Down / Up
 Wireless (wlp6s0) ${alignr}${totaldown wlp6s0} / ${totalup wlp6s0}
 Wired (enp7s0) ${alignr}${totaldown enp7s0} / ${totalup enp7s0}
