@@ -70,7 +70,9 @@ ${template1 Battery}            ${template2}${battery_percent}%    $alignr${batt
 ${template0 Memory}
 ${template1 RAM} ${template3}${mem}/${memmax}
 ${template1 Ram\ Usage}          ${template2}$memperc%     $alignr${membar 6, 160}
-${template1 Top}    ${template2}${top_mem name 1}    ${template3}${top_mem mem_vsize 1}
+${template1 Top}    ${template2}${top_mem name 1}    ${template3}${top_mem mem_res 1}
+										${template2}${top_mem name 2}    ${template3}${top_mem mem_res 2}
+										${template2}${top_mem name 3}    ${template3}${top_mem mem_res 3}
 
 # ==== CPU Info ==== #
 ${template0 Processors}
@@ -78,7 +80,9 @@ ${template1 Core\ 1}         ${template2}${cpu cpu1}%    $alignr${cpubar cpu1 6,
 ${template1 Core\ 2}         ${template2}${cpu cpu2}%    $alignr${cpubar cpu2 6, 160}
 ${template1 Core\ 3}         ${template2}${cpu cpu3}%    $alignr${cpubar cpu3 6, 160}
 ${template1 Core\ 4}         ${template2}${cpu cpu4}%    $alignr${cpubar cpu4 6, 160}
-${template1 Top}       ${template2}${top name 1}      $alignr${top cpu 1}%
+${template1 Top}      	${template2}${top name 1}      $alignr${top cpu 1}%
+												${template2}${top name 2}      $alignr${top cpu 2}%
+												${template2}${top name 3}      $alignr${top cpu 3}%
 
 ${template0 Filesystem}
 ${template1 /}        ${template2}${fs_free /} free     $alignr${fs_used /} / ${fs_size /}
