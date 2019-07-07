@@ -15,7 +15,7 @@ conky.config = {
 	font = 'Sans Regular:size=10',
 	gap_x = 8,
 	gap_y = 15,
-	width = '400',
+	maximum_width = 290,
 	minimum_height = '300',
 	no_buffers = true,
 	override_utf8_locale = false,
