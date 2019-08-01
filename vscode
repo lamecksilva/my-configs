@@ -18,6 +18,7 @@
 
 	// Editor
 	"editor.tabSize": 2,
+	"editor.fontFamily": "Fira Code",
 	"editor.renderWhitespace": "all",
 	"editor.wordWrap": "on",
 	"editor.formatOnSave": true,
@@ -25,8 +26,11 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.mouseWheelZoom": true,
 	"editor.find.autoFindInSelection": true,
+	"editor.wordWrapColumn": 100,
 	"editor.rulers": [100],
 	"editor.suggest.showIcons": true,
+	"editor.lineHeight": 0,
+	"editor.cursorSmoothCaretAnimation": true,
 
 	// Integrated Terminal
 	"terminal.integrated.copyOnSelection": true,
@@ -37,7 +41,7 @@
 	// GIT
 	"git.showProgress": true,
 	"git.autofetch": true,
-	"git.confirmSync": false,
+	"git.confirmSync": true,
 	"git.enableSmartCommit": true,
 	"git.alwaysSignOff": true,
 
@@ -59,5 +63,6 @@
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+	"editor.fontLigatures": true
 }
