@@ -1,31 +1,63 @@
 {
-  "workbench.colorTheme": "Spotify",
-  "workbench.iconTheme": "material-icon-theme",
-  "extensions.ignoreRecommendations": true,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 3000,
-  "editor.tabSize": 2,
-  "editor.renderWhitespace": "all",
-  "editor.wordWrap": "on",
-  "editor.formatOnSave": true,
-  "prettier.singleQuote": true,
-  "workbench.startupEditor": "newUntitledFile",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.cursorBlinking": true,
-  "window.zoomLevel": 0,
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/node_modules/**": true
-  },
-  "prettier.eslintIntegration": true,
-  "editor.fontSize": 12,
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "git.enableSmartCommit": true,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "workbench.tips.enabled": false
+	// Workbench Customizations
+	"workbench.colorTheme": "Monokai",
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.startupEditor": "newUntitledFile",
+	"workbench.tips.enabled": false,
+	"workbench.colorCustomizations": {
+		"editorRuler.foreground": "#074e1c"
+	},
+
+	// Files
+	"files.autoSave": "afterDelay",
+	"files.autoSaveDelay": 3000,
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/node_modules/**": true
+	},
+
+	// Editor
+	"editor.tabSize": 2,
+	"editor.renderWhitespace": "all",
+	"editor.wordWrap": "on",
+	"editor.formatOnSave": true,
+	"editor.fontSize": 12,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.mouseWheelZoom": true,
+	"editor.find.autoFindInSelection": true,
+	"editor.rulers": [100],
+	"editor.suggest.showIcons": true,
+
+	// Integrated Terminal
+	"terminal.integrated.copyOnSelection": true,
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+	"terminal.integrated.cursorBlinking": true,
+
+	// GIT
+	"git.showProgress": true,
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	"git.enableSmartCommit": true,
+	"git.alwaysSignOff": true,
+
+	// Extensions
+	"extensions.ignoreRecommendations": true,
+	"prettier.eslintIntegration": true,
+	"prettier.useTabs": true,
+	"prettier.singleQuote": true,
+
+	// Langs and etc
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
