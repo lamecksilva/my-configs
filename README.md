@@ -1,19 +1,44 @@
-### custom-scripts
+<p>
+  <h1 align="center">Custom Scripts</h1>
+</p>
 
-Repository to keep some scripts to help life and time
-
-OBS.1 :
-To run this scripts in any dir, cp the files to /bin dir
-e.g:
-
-`# cp gitpush /bin`
+> Repository to save some commands and scripts
 
 ---
 
-OBS.2 :
-To save username and password in git
+## Make executable file run in any path:
 
-`$ git config credential.helper store`  
-`$ git pull`  
-Again, git pull to test  
-`$git pull`
+To run this scripts in any dir, cp the files to `/bin`, e.g:
+
+```sh
+$ sudo cp gitpush /bin
+```
+
+_**OBS**: The files must have `+x` permissions._
+
+## Save credentials to git:
+
+#### Edit git configs in VSCODE:
+
+```sh
+$ git config --global core.editor "code --wait"
+$ git config --glboal -e
+```
+
+OR
+
+
+```sh
+$ git config credential.helper store
+$ git pull
+
+# Again, git pull to test
+$ git pull
+```
+
+OR:
+
+```sh
+git config --global user.email "lameck@lsdev.com"
+git config --global user.name "lamecksilva"
+```
