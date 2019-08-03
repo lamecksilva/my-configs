@@ -27,7 +27,6 @@ $ git config --glboal -e
 
 OR
 
-
 ```sh
 $ git config credential.helper store
 $ git pull
@@ -42,3 +41,7 @@ OR:
 git config --global user.email "lameck@lsdev.com"
 git config --global user.name "lamecksilva"
 ```
+
+## Interesting Links:
+
+- [Complete list of github markdown emoji markup :v:](https://gist.github.com/rxaviers/7360908)
