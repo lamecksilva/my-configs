@@ -1,11 +1,11 @@
 {
 	// Workbench Customizations
-	"workbench.colorTheme": "Monokai",
+	"workbench.colorTheme": "Spotify",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.tips.enabled": false,
 	"workbench.colorCustomizations": {
-		"editorRuler.foreground": "#074e1c"
+		"editorRuler.foreground": "#4d4e07"
 	},
 
 	// Files
@@ -13,7 +13,16 @@
 	"files.autoSaveDelay": 3000,
 	"files.watcherExclude": {
 		"**/.git/objects/**": true,
-		"**/node_modules/**": true
+		"**/node_modules/**": true,
+		"**/.git/subtree-cache/**": true
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/node_modules": true
 	},
 
 	// Editor
@@ -31,6 +40,7 @@
 	"editor.suggest.showIcons": true,
 	"editor.lineHeight": 0,
 	"editor.cursorSmoothCaretAnimation": true,
+	"editor.fontLigatures": true,
 
 	// Integrated Terminal
 	"terminal.integrated.copyOnSelection": true,
@@ -41,9 +51,8 @@
 	// GIT
 	"git.showProgress": true,
 	"git.autofetch": true,
-	"git.confirmSync": true,
+	"git.confirmSync": false,
 	"git.enableSmartCommit": true,
-	"git.alwaysSignOff": true,
 
 	// Extensions
 	"extensions.ignoreRecommendations": true,
@@ -64,5 +73,13 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"editor.fontLigatures": true
+	// m$ wathing us, disable it
+	"telemetry.enableTelemetry": false,
+
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/env": true,
+		"**/venv": true
+	}
 }
