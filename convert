@@ -1,5 +1,7 @@
 #! /usr/bin/lua
 
+# convert.lua
+
 local usage = [[
 Usage: convert.lua old_conkyrc [new_conkyrc]
 Tries to convert conkyrc from the old v1.x format to the new, lua-based format.

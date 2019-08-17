@@ -1,8 +1,8 @@
 <p>
-  <h1 align="center">Custom Scripts</h1>
+  <h1 align="center">My configs</h1>
 </p>
 
-> Repository to save some commands and scripts
+> Repository to save some commands, scripts, and config files
 
 ---
 
