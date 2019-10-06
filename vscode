@@ -1,13 +1,12 @@
 {
 	// Workbench Customizations
-	"workbench.colorTheme": "Tomorrow Night Bright",
-	"workbench.iconTheme": "material-icon-theme",
+	"workbench.colorTheme": "Spotify",
+	"workbench.iconTheme": "vscode-great-icons",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.tips.enabled": false,
 	"workbench.colorCustomizations": {
 		"editorRuler.foreground": "#4d4e07"
 	},
-
 	// Files
 	"files.autoSave": "afterDelay",
 	"files.autoSaveDelay": 3000,
@@ -24,14 +23,13 @@
 		"**/.DS_Store": true,
 		"**/node_modules": true
 	},
-
 	// Editor
 	"editor.tabSize": 2,
 	"editor.fontFamily": "Fira Code",
 	"editor.renderWhitespace": "all",
 	"editor.wordWrap": "on",
+	"editor.fontSize": 14,
 	"editor.formatOnSave": true,
-	"editor.fontSize": 12,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.mouseWheelZoom": true,
 	"editor.find.autoFindInSelection": true,
@@ -41,7 +39,6 @@
 	"editor.lineHeight": 0,
 	"editor.cursorSmoothCaretAnimation": true,
 	"editor.fontLigatures": true,
-
 	// Integrated Terminal
 	"terminal.integrated.copyOnSelection": true,
 	"terminal.integrated.cursorStyle": "line",
@@ -49,23 +46,18 @@
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.enableBell": true,
 	"terminal.integrated.fontSize": 12,
-
 	// GIT
 	"git.showProgress": true,
 	"git.autofetch": true,
 	"git.confirmSync": false,
 	"git.enableSmartCommit": true,
-
 	// Extensions
 	"extensions.ignoreRecommendations": true,
-	"prettier.eslintIntegration": true,
 	"prettier.useTabs": true,
 	"prettier.singleQuote": true,
-
 	// Langs and etc
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"typescript.updateImportsOnFileMove.enabled": "always",
-
 	"[javascriptreact]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
@@ -77,12 +69,11 @@
 	},
 	// m$ wathing us, disable it
 	"telemetry.enableTelemetry": false,
-
 	"search.exclude": {
 		"**/node_modules": true,
 		"**/bower_components": true,
 		"**/env": true,
 		"**/venv": true
 	},
-
+	"window.zoomLevel": 1
 }
