@@ -9,7 +9,7 @@ module.exports = {
 		updateChannel: 'stable',
 
 		// default font size in pixels for all tabs
-		fontSize: 10,
+		fontSize: 12,
 
 		// font family with optional fallbacks
 		fontFamily: 'Menlo, "Fira Code", Consolas, "Fira Code", monospace',
@@ -67,6 +67,13 @@ module.exports = {
 		.tab_hasActivity:hover {
 			color: #96d4e4;
 		}
+		.splitpane_divider {
+			background-color: #FFFFFF !important;
+		}
+		.splitpane_divider_horizontal {
+			background-color: #FFFFFF !important;
+		}
+		
 `,
 
 		termCSS: '',
@@ -96,7 +103,7 @@ module.exports = {
 			lightWhite: '#FFFFFF'
 		},
 
-		shell: '',
+		shell: 'fish',
 
 		// for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
 		// by default `['--login']` will be used
@@ -138,7 +145,7 @@ module.exports = {
 		'hyper-tabs-enhanced',
 		'hyper-dark-scrollbar',
 		'hypercwd',
-		'hyperocean'
+		'hyper-firefox-devtools'
 	],
 	scrollback: 100000000,
 
