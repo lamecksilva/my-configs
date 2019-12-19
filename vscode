@@ -1,7 +1,7 @@
 {
 	// Workbench Customizations
 	"workbench.colorTheme": "Spotify",
-	"workbench.iconTheme": "vscode-great-icons",
+	"workbench.iconTheme": "material-icon-theme",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.tips.enabled": false,
 	"workbench.colorCustomizations": {
@@ -32,7 +32,7 @@
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.mouseWheelZoom": true,
-	"editor.find.autoFindInSelection": true,
+	"editor.find.autoFindInSelection": "always",
 	"editor.wordWrapColumn": 100,
 	"editor.rulers": [100],
 	"editor.suggest.showIcons": true,
