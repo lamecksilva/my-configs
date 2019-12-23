@@ -135,9 +135,13 @@ module.exports = {
 
 		// Whether to use the WebGL renderer. Set it to false to use canvas-based
 		// rendering (slower, but supports transparent backgrounds)
-		webGLRenderer: true
+		webGLRenderer: true,
 
 		// for advanced config flags please refer to https://hyper.is/#cfg
+		hyperBorder: {
+			borderColors: ['#F2F2F2', '#50BFBF', '#268EA6', '#03658C', '#23518C'],
+			borderWidth: '4px'
+		}
 	},
 
 	plugins: [
@@ -145,7 +149,8 @@ module.exports = {
 		'hyper-tabs-enhanced',
 		'hyper-dark-scrollbar',
 		'hypercwd',
-		'hyper-firefox-devtools'
+		'hyper-firefox-devtools',
+		'hyperborder'
 	],
 	scrollback: 100000000,
 
