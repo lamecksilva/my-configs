@@ -27,7 +27,7 @@ module.exports = {
 		letterSpacing: 0,
 
 		// terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-		cursorColor: 'rgba(248,28,229,0.8)',
+		cursorColor: '#F2F2F2',
 
 		// terminal text color under BLOCK cursor
 		cursorAccentColor: '#000',
@@ -43,10 +43,10 @@ module.exports = {
 
 		// terminal background color
 		// opacity is only supported on macOS
-		backgroundColor: '#000',
+		backgroundColor: '#03658C',
 
 		// terminal selection color
-		selectionColor: 'rgba(248,28,229,0.3)',
+		selectionColor: '#F2F2F2',
 
 		// border color (window, tabs)
 		borderColor: '#333',
@@ -141,6 +141,9 @@ module.exports = {
 		hyperBorder: {
 			borderColors: ['#F2F2F2', '#50BFBF', '#268EA6', '#03658C', '#23518C'],
 			borderWidth: '4px'
+		},
+		hyperStatusLine: {
+			footerTransparent: false
 		}
 	},
 
@@ -149,7 +152,7 @@ module.exports = {
 		'hyper-tabs-enhanced',
 		'hyper-dark-scrollbar',
 		'hypercwd',
-		'hyper-firefox-devtools',
+		'hyper-tailwind-dark',
 		'hyperborder'
 	],
 	scrollback: 100000000,
