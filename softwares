@@ -11,7 +11,7 @@ telegram-desktop
 pm2
 terminator
 terminus-font-ttf
-Fira Code 
+ttf-fira-code
 spotify
 speedtest-cli
 screenfetch
@@ -22,4 +22,5 @@ mongodb-bin
 vlc
 fish
 postman
+insomnia
 conky
