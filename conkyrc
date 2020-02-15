@@ -14,7 +14,7 @@ conky.config = {
 	draw_graph_borders = false,
 	font = 'Sans Regular:size=10',
 	gap_x = 8,
-	gap_y = 15,
+	gap_y = 30,
 	maximum_width = 300,
 	minimum_height = '300',
 	no_buffers = true,
@@ -33,22 +33,22 @@ conky.config = {
 	xftalpha = 0,
 
 	-- colors
-	default_color = 'EEEEEE',
-	color1 = '26a4d6',
-	color2 = 'c4d626',
-	color3 = 'AAAAAA',
+	default_color = '#EEEEEE',
+	color1 = '#26a4d6',
+	color2 = '#c7c7c7',
+	color3 = '#AAAAAA',
 
 	-- layouting
 	template0 = [[${font Liberation Sans:bold:size=11}${color2}\1 ${color3}${hr 2}${font}]],
 	template1 = [[${color1}\1]],
 	template2 = [[${goto 90}${color}]],
-	template3 = [[${goto 170}${color}${alignr}]],
+	template3 = [[${goto 160}${color}${alignr}]],
 };
 
 conky.text = [[
-$alignr${font Fira Sans:bold:size=28}${time %H:%M:%S}${font}
-$alignr${font Fira Sans:size=16}${time %d/%m/%Y}${font} 
-# ==== System Info ==== #
+$alignr${font Fira Sans:bold:size=24}${time %H:%M:%S}${font}
+$alignr${font Fira Sans:size=14}${time %d/%m/%Y}${font} 
+# ====================== System Info ====================== #
 ${template0 Info}
 ${template1 SO}                         ${template3}$distribution
 ${template1 Hostname}                   ${template3}${nodename}
@@ -57,19 +57,17 @@ ${template1 User}                       ${template3}$user_names
 #${template1 Time}                       ${template3}${time %H:%M:%S}
 #${template1 Date}                       ${template3}${time %d/%m/%Y}
 ${template1 Uptime}                     ${template3}$uptime
-${template0 System}
-${template1 CPU} $alignr${color white}${exec lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g'}
-${template1 CPU\ Temperature}           ${template3}${exec sensors | grep -n 'CPU' | awk -F'+' '{print $2}' | awk -F' ' '{print $1}'}
-${template1 Memory}                     ${template3}${memmax}
-${template0 Stats}
-${template1 Battery}            ${template2}${battery_percent}%    $alignr${battery_bar 6, 120}
+${template1 Battery} ${template2}${battery_percent}% $alignr  ${battery_bar 6, 120}
+# ====================== Memory ====================== #
 ${template0 Memory}
 ${template1 RAM} ${template3}${mem}/${memmax}
 ${template1 Ram\ Usage}          ${template2}$memperc%     $alignr${membar 6, 120}
 ${template1 Top}    ${template2}${top_mem name 1}    ${template3}${top_mem mem_res 1}
 										${template2}${top_mem name 2}    ${template3}${top_mem mem_res 2}
-# ==== CPU Info ==== #
+# ====================== CPU Info ====================== #
 ${template0 Processors}
+${template1 Model} $alignr ${color white} ${exec lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | cut -c 1-26}
+${template1 Temperature}           ${template3}${exec sensors | grep -n 'CPU' | awk -F'+' '{print $2}' | awk -F' ' '{print $1}'}
 ${template1 CPU\ Frequency}              ${template3}${freq_g}GHz
 ${template1 Core\ 1}         ${template2}${cpu cpu1}%    $alignr${cpubar cpu1 6, 120}
 ${template1 Core\ 2}         ${template2}${cpu cpu2}%    $alignr${cpubar cpu2 6, 120}
@@ -77,12 +75,13 @@ ${template1 Core\ 3}         ${template2}${cpu cpu3}%    $alignr${cpubar cpu3 6,
 ${template1 Core\ 4}         ${template2}${cpu cpu4}%    $alignr${cpubar cpu4 6, 120}
 ${template1 Top}      ${template2}${top name 1}      $alignr${top cpu 1}%
 											${template2}${top name 2}      $alignr${top cpu 2}%
-${template0 Filesystem}
-${template1 /}        ${template2}${fs_free /} free     $alignr${fs_used /} / ${fs_size /}
+# ====================== Filesystem Info ====================== #
+${template0 Disk}
+${template1 FileSystem}        ${template2}${fs_free /} free     $alignr${fs_used /} / ${fs_size /}
 ${template1 Disk\ Usage}   ${template2}$fs_used_perc%      $alignr${fs_bar 6, 120 /}
-${template1 IO\ Read}      ${template2}${diskio_read}
-${template1 IO\ Write}     ${template2}${diskio_write}
+${template1 IO\ Read / Write}       ${alignr} ${color white} ${diskio_read} / ${diskio_write}
 ${template1 Top}     ${template2}${top_io name 1}     $alignr${top_io io_perc 1}%
+# ====================== Networking Info ====================== #
 ${template0 Networking}
 ${if_existing /proc/net/route enp7s0}\
 ${template1 Interface}     ${template3}enp7s0
