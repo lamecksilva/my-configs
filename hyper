@@ -9,7 +9,7 @@ module.exports = {
 		updateChannel: 'stable',
 
 		// default font size in pixels for all tabs
-		fontSize: 12,
+		fontSize: 16,
 
 		// font family with optional fallbacks
 		fontFamily: 'Menlo, "Fira Code", Consolas, "Fira Code", monospace',
@@ -80,7 +80,7 @@ module.exports = {
 
 		showHamburgerMenu: false,
 
-		showWindowControls: false,
+		showWindowControls: true,
 
 		padding: '0px 5px',
 
@@ -148,12 +148,15 @@ module.exports = {
 	},
 
 	plugins: [
-		'hyper-statusline',
-		'hyper-tabs-enhanced',
-		'hyper-dark-scrollbar',
 		'hypercwd',
-		'hyper-tailwind-dark',
-		'hyperborder'
+		'hyper-tabs-enhanced',
+		'hyper-statusline',
+		'hyper-dark-scrollbar',
+		//'hyper-tailwind-dark',
+		'hyperborder',
+		'hyper-blink',
+		'hyper-pane',
+		'hyper-subliminal-theme'
 	],
 	scrollback: 100000000,
 
