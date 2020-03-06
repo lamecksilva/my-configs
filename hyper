@@ -9,10 +9,11 @@ module.exports = {
 		updateChannel: 'stable',
 
 		// default font size in pixels for all tabs
-		fontSize: 16,
+		fontSize: 15,
 
 		// font family with optional fallbacks
-		fontFamily: 'Menlo, "Fira Code", Consolas, "Fira Code", monospace',
+		fontFamily:
+			'"Terminus (TTF)", "Fira Code", Consolas, "Fira Code", monospace',
 
 		// default font weight: 'normal' or 'bold'
 		fontWeight: 'normal',
