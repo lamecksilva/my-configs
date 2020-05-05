@@ -13,7 +13,7 @@ conky.config = {
 	draw_outline = true,
 	draw_graph_borders = false,
 	font = 'Sans Regular:size=10',
-	gap_x = 10,
+	gap_x = 2250,
 	gap_y = 10,
 	maximum_width = 300,
 	minimum_height = '300',
