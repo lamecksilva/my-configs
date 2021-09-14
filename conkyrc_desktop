@@ -13,9 +13,9 @@ conky.config = {
 	draw_outline = true,
 	draw_graph_borders = false,
 	font = 'Sans Regular:size=10',
-	gap_x = 2250,
-	gap_y = 10,
-	maximum_width = 300,
+	gap_x = 2190,
+	gap_y = 40,
+	maximum_width = 400,
 	minimum_height = '300',
 	no_buffers = true,
 	override_utf8_locale = false,
@@ -41,7 +41,7 @@ conky.config = {
 	-- layouting
 	template0 = [[${font Liberation Sans:bold:size=11}${color2}\1 ${color3}${hr 2}${font}]],
 	template1 = [[${color1}\1]],
-	template2 = [[${goto 90}${color}]],
+	template2 = [[${goto 120}${color}]],
 	template3 = [[${goto 170}${color}${alignr}]],
 };
 
@@ -51,25 +51,25 @@ $alignr${font Fira Sans:size=16}${time %d/%m/%Y}${font}
 # =================== System Info ================== #
 
 ${template0 Info}
-${template1 SO}                         ${template3}$distribution
+${template1 SO}                         ${template3}${distribution}
 ${template1 Hostname}                   ${template3}${nodename}
-${template1 Kernel}     ${template3}${kernel}
+${template1 Kernel}                     ${template3}${kernel}
 ${template1 User}                       ${template3}$user_names
-#${template1 Time}                       ${template3}${time %H:%M:%S}
-#${template1 Date}                       ${template3}${time %d/%m/%Y}
+#${template1 Time}                      ${template3}${time %H:%M:%S}
+#${template1 Date}                      ${template3}${time %d/%m/%Y}
 ${template1 Uptime}                     ${template3}$uptime
 # ============================== Memory =========================== #
 ${template0 Memory}
 ${template1 RAM} ${template3}${mem}/${memmax}
-${template1 Ram\ Usage}          ${template2}       ${memperc}% $alignr ${membar 6, 120}
+${template1 Ram\ Usage}          ${template2}${memperc}%  $alignr ${membar 6, 120}
 ${template1 Top}    ${template2}${top_mem name 1}    ${template3}${top_mem mem_res 1}
 										${template2}${top_mem name 2}    ${template3}${top_mem mem_res 2}
 										${template2}${top_mem name 3}    ${template3}${top_mem mem_res 3}
 # ============================== GPU =========================== #
 ${template0 GPU}
-${template1 Model}     ${template3} ${exec nvidia-smi | grep "GeForce" | cut -c 8-23}
+${template1 Model}     ${template3} ${exec inxi -G | grep "renderer" | cut -c 36-58}
 ${template1 Temperature}     ${template3} ${execi 30 nvidia-settings -query [gpu:0]/GPUCoreTemp -t} °C
-${template1 Utilization}     ${template3} ${exec nvidia-smi | grep % | cut -c 61-63} %
+${template1 Utilization}     ${template3} ${exec nvidia-smi | grep % | cut -c 61-64}
 ${template1 VRAM Utilization}    ${template3} ${exec nvidia-smi | grep % | cut -c 37-54}
 # ============================ CPU Info =========================== #
 ${template0 CPU}
